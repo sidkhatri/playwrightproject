@@ -1,0 +1,20 @@
+{
+  "name": "playwrightproject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "demo:test": "playwright test tests/demo/mytest.spec.ts --headed",
+    "firefox:test:headed": "playwright test tests/demo/mytest.spec.ts --project=firefox --headed",
+    "webkit:test": "playwright test tests/demo/mytest.spec.ts --project=webkit --headed",
+    "chromium:test": "playwright test tests/demo/mytest.spec.ts --project=chromium --headed",
+    "edge:test": "playwright test tests/demo/mytest.spec.ts --project=edge --headed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.8"
+  }
+}
