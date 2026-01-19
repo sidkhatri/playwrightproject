@@ -3,14 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "demo:test": "playwright test tests/demo/mytest.spec.ts --headed",
+    "demo": "playwright test tests/demo/mytest.spec.ts --headed",
+    "login": "playwright test tests/functional/login.spec.ts --headed",
+    "make-appointment": "playwright test tests/functional/make.appmnt.spec.ts --headed",
     "firefox:test:headed": "playwright test tests/demo/mytest.spec.ts --project=firefox --headed",
     "webkit:test": "playwright test tests/demo/mytest.spec.ts --project=webkit --headed",
     "chromium:test": "playwright test tests/demo/mytest.spec.ts --project=chromium --headed",
     "edge:test": "playwright test tests/demo/mytest.spec.ts --project=edge --headed"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "playwright",
+    "playwright e2e testing",
+    "playwright mcp"
+  ],
+  "author": "SK Automation",
   "license": "ISC",
   "description": "",
   "devDependencies": {
