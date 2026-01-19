@@ -7,12 +7,12 @@ test.describe('Make Appointment', () => {
     const userName = page.getByPlaceholder('Username').last();
     const password = page.getByPlaceholder('Password').last();
     await userName.fill('John Doe');
-    await password.fill('ThisisNotAPassword');
+    await password.fill('ThisIsNotAPassword');
     await page.getByRole('button', { name: 'Login' }).click();
     //await expect(page.url()).toContain('https://katalon-demo-cura.herokuapp.com/profile.php#login');
   });
 
-  test('make appointment with non-default values', async ({ page }) => {
+  test.only('make appointment with non-default values', async ({ page }) => {
     //dropdown
     await page.getByLabel('Facility').selectOption('Hongkong CURA Healthcare Center');
     //checkbox
