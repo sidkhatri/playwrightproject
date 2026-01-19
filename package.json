@@ -6,6 +6,7 @@
     "demo": "playwright test tests/demo/mytest.spec.ts --headed",
     "login": "playwright test tests/functional/login.spec.ts --headed",
     "make-appointment": "playwright test tests/functional/make.appmnt.spec.ts --headed",
+    "inventory": "playwright test tests/functional/inventory.spec.ts --headed",
     "firefox:test:headed": "playwright test tests/demo/mytest.spec.ts --project=firefox --headed",
     "webkit:test": "playwright test tests/demo/mytest.spec.ts --project=webkit --headed",
     "chromium:test": "playwright test tests/demo/mytest.spec.ts --project=chromium --headed",

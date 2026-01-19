@@ -13,12 +13,34 @@ test.describe('Make Appointment', () => {
   });
 
   test.only('make appointment with non-default values', async ({ page }) => {
+    //extract all link texts from a page 
+    //const texts = await page.getByRole('link').allTextContents();
     //dropdown
+    await expect(page.getByLabel('Facility')).toHaveValue('Tokyo CURA Healthcare Center');
     await page.getByLabel('Facility').selectOption('Hongkong CURA Healthcare Center');
+    await (page.getByLabel('Facility')).selectOption({label: 'Seoul CURA Healthcare Center'});
+    await (page.getByLabel('Facility').selectOption({index: 0}));
+    await expect(page.getByLabel('Facility')).toHaveValue('Tokyo CURA Healthcare Center');
+    //asert the count in the dropdown
+    const count = await page.getByLabel('Facility').locator('option').count();
+    await expect(count).toBe(3);
+    let listOfDropdownOptions = await page.getByLabel('Facility').all(); 
+    let arrayOfOptions: string[] = [];
+    for (const option of listOfDropdownOptions) {
+      let optionText = await option.textContent();
+      if(optionText){
+        arrayOfOptions.push(optionText);
+      }
+    }
+    console.log(arrayOfOptions);
     //checkbox
-    await page.getByText('Apply for hospital readmission').click();
+    await page.getByText('Apply for hospital readmission').check();
+    await page.getByText('Apply for hospital readmission').uncheck();
     //radio button
-    await page.getByText('Medicaid').click();
+    //assert the default radio button is selected
+    await expect(page.getByText('Medicare')).toBeChecked();
+    await page.getByText('Medicaid').check();
+    await expect(page.getByText('Medicare')).not.toBeChecked();
     //date picker
     await page.getByRole('textbox', { name: 'Visit Date (Required)' }).click();
     await page.getByRole('cell', { name: '21' }).click();
